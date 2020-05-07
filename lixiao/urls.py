@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('students/', include('students.urls')),
+    path('docs/', include_docs_urls(title='今何在')),  # drf文档
+    path('api-auth', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
 ]
