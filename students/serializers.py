@@ -2,7 +2,8 @@ from .models import Student, School, Department, Team
 from rest_framework import serializers
 
 
-class StudentsSerializer(serializers.HyperlinkedModelSerializer):
+class StudentsSerializer(serializers.ModelSerializer):
+    # name = serializers.CharField(label='姓名', max_length=200)
     school_name = serializers.SerializerMethodField(read_only=True)
     department_name = serializers.SerializerMethodField(read_only=True)
     team_name = serializers.SerializerMethodField(read_only=True)
